@@ -117,7 +117,7 @@ class BlockCache(scripts.Script):
             setattr(BlockCache, "max_consecutive_steps", max_consecutive_steps)
 
             print(
-                ">> Flux caching enabled with method:",
+                "[Flux Cache] method:",
                 method,
                 "threshold:",
                 threshold,
@@ -225,7 +225,7 @@ def patched_inner_forward_flux_fbc(self, img, img_ids, txt, txt_ids, timesteps, 
                 BlockCache.previous = img
 
             if BlockCache.cache_hits >= BlockCache.max_consecutive_steps:
-                print("\nFlux Cache: reset\n")
+                # print("\nFlux Cache: reset\n")
                 BlockCache.cache_hits = 0  # reset cache hits
 
     img = torch.cat((txt, img), 1)
