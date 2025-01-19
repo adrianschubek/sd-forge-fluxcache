@@ -42,7 +42,7 @@ class BlockCache(scripts.Script):
                     label="end caching at this step percentage",  # percentage
                     minimum=0,
                     maximum=1,
-                    value=0.8,
+                    value=0.9,
                     step=0.1,
                 )
             with gr.Row():
