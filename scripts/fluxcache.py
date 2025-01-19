@@ -210,16 +210,18 @@ def patched_inner_forward_flux_fbc(self, img, img_ids, txt, txt_ids, timesteps, 
                 if BlockCache.accumulated_distance < BlockCache.threshold:
                     if BlockCache.cache_hits < BlockCache.max_consecutive_steps:  # use cache
                         BlockCache.cache_hits += 1
-                        print("\nFlux Cache: hit " + str(BlockCache.cache_hits) + "/" + str(BlockCache.max_consecutive_steps) + "\n")
+                        # print("\nFlux Cache: hit " + str(BlockCache.cache_hits) + "/" + str(BlockCache.max_consecutive_steps) + "\n")
                         img = original_img + BlockCache.previous_residual
                         img = self.final_layer(img, vec)
                         return img  ##  early exit
                     else:
-                        print("\nFlux Cache: miss(consecutive). inference step " + str(BlockCache.this_step) + "\n")
+                        # print("\nFlux Cache: miss(consecutive). inference step " + str(BlockCache.this_step) + "\n")
+                        pass
                 else:
-                    print("\nFlux Cache: miss(threshold). inference step " + str(BlockCache.this_step) + "\n")
+                    # print("\nFlux Cache: miss(threshold). inference step " + str(BlockCache.this_step) + "\n")
+                    pass
             else:
-                print("\nFlux Cache: miss(range). inference step " + str(BlockCache.this_step) + "\n")
+                # print("\nFlux Cache: miss(range). inference step " + str(BlockCache.this_step) + "\n")
                 BlockCache.previous = img
 
             if BlockCache.cache_hits >= BlockCache.max_consecutive_steps:
