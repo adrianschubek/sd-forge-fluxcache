@@ -50,7 +50,7 @@ class BlockCache(scripts.Script):
                     label="max consecutive uses of cached step",
                     minimum=1,
                     maximum=50,
-                    value=50,
+                    value=5,
                     step=1,
                 )
             with gr.Row():
